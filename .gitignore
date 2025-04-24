@@ -6,3 +6,9 @@
 
 # VSCode settings
 .vscode
+
+# Uploads folder
+/uploads
+
+# Processed folder
+/processed
