@@ -18,6 +18,13 @@
     <main class="container">
       <div class="input-container">
         <h2>PixScale</h2>
+        <div>
+          <h2>Subir imágenes</h2>
+          <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="images" multiple accept="image/*" required />
+            <button type="submit">Subir y procesar</button>
+          </form>
+        </div>
       </div>
     </main>
     <footer>
