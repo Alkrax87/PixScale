@@ -1,12 +1,12 @@
 /* Global */
 * {
-  font-family: "Teko", sans-serif;
+  font-family: "Cascadia Mono", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 200;
+  font-weight: 400;
   font-style: normal;
 }
 body {
-  background-color: #F2EFE7;
+  background-color: #E1EEBC;
   margin: 0px;
 }
 main {
@@ -17,27 +17,76 @@ h1 {
   padding: 10px;
   font-size: 50px;
 }
+p {
+  margin: 0px;
+}
 
 /* Font */
 
 /* Top */
 .top-bar {
-  background-color: #006A71;
+  background-color: #67AE6E;
   color: #F2EFE7;
   text-align: center;
 }
 
 /* Body */
 .container {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .input-container {
-  background-color: #9ACBD0;
-  padding: 0px 30px;
-  border-radius: 1rem;
+  background-color: #EFEEEA;
+  padding: 15px;
+  border-radius: 2rem;
+}
+.drop-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  padding: 30px;
+  text-align: center;
+  border: #328E6E dashed 3px;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+.drop-area:hover {
+  background-color: #e6e4e4;
+}
+.drop-image {
+  width: 250px;
+}
+.drop-message {
+  color: #123a2c;
+  margin: 0px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.drop-formats {
+  font-size: 15px;
+  color: #747574;
+}
+#counter {
+  margin: 10px 0px;
+  text-align: center;
+  font-size: 16px;
+  height: 20px;
+  color: #747574;
+}
+.process-button {
+  background-color: #67AE6E;
+  color: #fff;
+  font-size: 25px;
+  border: none;
+  width: 100%;
+  border-radius: 2rem;
+  height: 50px;
+  cursor: pointer;
+}
+.process-button:hover {
+  background-color: rgb(102, 163, 108);
 }
 
 /* Bottom */

@@ -6,25 +6,27 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap" rel="stylesheet">
     <title>PixScale</title>
   </head>
   <body>
     <header>
       <div class="top-bar">
-        <h1>¡Hello World from PixScale! 🖼️</h1>
+        <h1>¡PixScale! 🖼️</h1>
       </div>
     </header>
     <main class="container">
       <div class="input-container">
-        <h2>PixScale</h2>
-        <div>
-          <h2>Subir imágenes</h2>
-          <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
-            <input type="file" name="images" multiple accept="image/*" required />
-            <button type="submit">Subir y procesar</button>
-          </form>
-        </div>
+        <form id="form-input" action="/upload" method="POST" enctype="multipart/form-data">
+          <label class="drop-area" for="input-file">
+            <input id="input-file" type="file" name="images" accept=".png, .jpg, .jpeg, .webp" multiple hidden>
+            <img class="drop-image" src="./assets/svg/upload.svg" alt="upload-image">
+            <p class="drop-message">Drag and drop or click here to upload images</p>
+            <p class="drop-formats">.png .jpg .jpeg .webp</p>
+          </label>
+          <p id="counter"></p>
+          <button class="process-button" type="submit">Upload Images</button>
+        </form>
       </div>
     </main>
     <footer>
