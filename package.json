@@ -1,0 +1,22 @@
+{
+  "name": "pixscale",
+  "version": "0.1.0",
+  "description": "-",
+  "main": "./src/server.js",
+  "scripts": {
+    "dev": "nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alkrax87/PixScale.git"
+  },
+  "author": "Alkrax87",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
