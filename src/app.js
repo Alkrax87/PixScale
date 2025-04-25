@@ -18,6 +18,11 @@ app.use(express.json());
 // Middleware to log HTTP requests
 app.use(morgan("dev"));
 
+if (!fs.existsSync('./processed')) {
+  fs.mkdirSync('./processed')
+}
+
+// Middleware to handle file uploads
 const upload = multer({ dest: './uploads/' });
 
 app.get('/', (req, res) => {
