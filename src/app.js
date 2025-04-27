@@ -29,9 +29,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
-app.post('/upload', upload.array('images', 10), async (req, res) => {
+app.post('/upload', upload.array('images'), async (req, res) => {
   if (!req.files || req.files.length === 0) {
-    return res.status(400).send('No images were uploaded.');
+    return res.sendFile(path.join(__dirname, '../public', 'empty.html'));
   }
 
   const processedNames = [];
@@ -56,13 +56,7 @@ app.post('/upload', upload.array('images', 10), async (req, res) => {
 
   }
 
-  const htmlList = processedNames.map(name => `<l1>${name}</li>`).join('');
-
-  res.send(`
-    <h2>¡Imágenes recibidas!</h2>
-    <ul>${htmlList}</ul>
-    <a href="/">Volver</a>
-  `)
+  res.sendFile(path.join(__dirname, '../public', 'converted.html'));
 });
 
 module.exports = app;
