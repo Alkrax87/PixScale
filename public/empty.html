@@ -17,17 +17,10 @@
       </div>
     </header>
     <main class="container">
-      <div class="input-container">
-        <form id="form-input" action="/upload" method="POST" enctype="multipart/form-data">
-          <label class="drop-area" for="input-file">
-            <input id="input-file" type="file" name="images" accept=".png, .jpg, .jpeg, .webp" multiple hidden>
-            <img class="drop-image" src="./assets/svg/upload.svg" alt="upload-image">
-            <p class="drop-message">Drag and drop or click here to upload images</p>
-            <p class="drop-formats">.png .jpg .jpeg .webp</p>
-          </label>
-          <p id="counter"></p>
-          <button class="process-button" type="submit">Upload Images</button>
-        </form>
+      <div class="message-container">
+        <h2>Error has ocurred!</h2>
+        <p>Looks like you don't selected any file. Please try again.</p>
+        <button class="process-button" type="submit" onclick="window.location.href='/'">Back</button>
       </div>
     </main>
     <footer>
@@ -37,6 +30,4 @@
       </div>
     </footer>
   </body>
-
-  <script src="index.js"></script>
 </html>

@@ -5,23 +5,32 @@
   font-weight: 400;
   font-style: normal;
 }
-body {
+html, body {
   background-color: #E1EEBC;
-  margin: 0px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  min-height: 100vh;
 }
 main {
-  height: 100vh;
+  flex: 1;
+}
+a {
+  text-decoration: none;
 }
 h1 {
-  margin: 0px;
+  margin: 0;
   padding: 10px;
   font-size: 50px;
 }
 p {
   margin: 0px;
 }
-
-/* Font */
 
 /* Top */
 .top-bar {
@@ -86,7 +95,43 @@ p {
   cursor: pointer;
 }
 .process-button:hover {
-  background-color: rgb(102, 163, 108);
+  background-color: #66a36c;
+}
+.process-button:focus {
+  outline: none;
+}
+
+/* Card */
+.message-container {
+  background-color: #EFEEEA;
+  padding: 50px;
+  border-radius: 2rem;
+  text-align: center;
+}
+.message-container h2 {
+  font-size: 32px;
+  color: #328E6E;
+  margin: 0;
+}
+.message-container p {
+  font-size: 16px;
+  color: #747574;
+}
+.message-container button {
+  margin-top: 20px;
+}
+.message-container span {
+  color: #328E6E;
+  font-weight: 1000;
 }
 
 /* Bottom */
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background-color: #67AE6E;
+  color: #F2EFE7;
+}
