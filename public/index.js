@@ -1,10 +1,23 @@
-const input = document.getElementById('input-file');
-const counter = document.getElementById('counter');
+const input = document.getElementById("input-file");
+const counter = document.getElementById("counter");
 
-input.addEventListener('change', uploadImages);
+input.addEventListener("change", uploadImages);
 
-function uploadImages(){
+function uploadImages() {
   if (input.files.length > 0) {
-    counter.innerHTML = `Images uploaded: ${input.files.length}`;
+    if (input.files.length > 1) {
+      counter.innerHTML = `<b>${input.files.length}</b> files selected`;
+    } else {
+      counter.innerHTML = `<b>${input.files.length}</b> file selected`;
+    }
   }
 }
+
+const buttons = document.querySelectorAll(".toggle-button");
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    buttons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});

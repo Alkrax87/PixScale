@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <title>PixScale</title>
   </head>
@@ -17,18 +17,26 @@
       </div>
     </header>
     <main class="container">
-      <div class="input-container">
-        <form id="form-input" action="/upload" method="POST" enctype="multipart/form-data">
+      <form id="form-input" action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="input-container">
           <label class="drop-area" for="input-file">
             <input id="input-file" type="file" name="images" accept=".png, .jpg, .jpeg, .webp" multiple hidden>
             <img class="drop-image" src="./assets/svg/upload.svg" alt="upload-image">
-            <p class="drop-message">Drag and drop or click here to upload images</p>
-            <p class="drop-formats">.png .jpg .jpeg .webp</p>
+            <p class="drop-message">Drag and drop images here</p>
+            <p class="drop-click">or click to browse files</p>
           </label>
-          <p id="counter"></p>
-          <button class="process-button" type="submit">Upload Images</button>
-        </form>
-      </div>
+          <p>Select output format:</p>
+          <div class="output-format-container">
+            <button type="button" class="toggle-button">PNG</button>
+            <button type="button" class="toggle-button">JPG</button>
+            <button type="button" class="toggle-button">JPEG</button>
+            <button type="button" class="toggle-button">WEBP</button>
+            <button type="button" class="toggle-button">AVIF</button>
+          </div>
+          <p id="counter">No images selected</p>
+        </div>
+        <button class="process-button" type="submit">Upload Images</button>
+      </form>
     </main>
     <footer>
       <div class="footer-container">

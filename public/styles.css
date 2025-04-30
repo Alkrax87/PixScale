@@ -1,12 +1,11 @@
 /* Global */
 * {
-  font-family: "Cascadia Mono", sans-serif;
+  font-family: "Geist", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
   font-style: normal;
 }
 html, body {
-  background-color: #E1EEBC;
+  background-color: #FFFFFF;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -31,10 +30,13 @@ h1 {
 p {
   margin: 0px;
 }
+button:focus {
+  outline: none;
+}
 
 /* Top */
 .top-bar {
-  background-color: #67AE6E;
+  background-color: #2c8062;
   color: #F2EFE7;
   text-align: center;
 }
@@ -46,56 +48,82 @@ p {
   align-items: center;
 }
 .input-container {
-  background-color: #EFEEEA;
-  padding: 15px;
-  border-radius: 2rem;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
 }
 .drop-area {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
-  padding: 30px;
   text-align: center;
-  border: #328E6E dashed 3px;
-  border-radius: 2rem;
+  width: 600px;
+  padding: 48px;
+  border: #e5e7eb dashed 2px;
+  border-radius: 12px;
   cursor: pointer;
+  margin-bottom: 12px;
 }
 .drop-area:hover {
-  background-color: #e6e4e4;
+  background-color: #f4f4f580;
 }
 .drop-image {
   width: 250px;
 }
 .drop-message {
-  color: #123a2c;
+  color: #18181d;
   margin: 0px;
   font-size: 20px;
   font-weight: 500;
 }
-.drop-formats {
+.drop-click {
   font-size: 15px;
-  color: #747574;
+  color: #71717a;
+}
+.output-format-container {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0px;
+  gap: 12px;
+}
+.output-format-container .toggle-button {
+  background-color: #fff;
+  border: #e5e7eb 1px solid;
+  padding: 10px 0;
+  width: 75px;
+  color: #328E6E;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.output-format-container .toggle-button:hover {
+  background-color: #f4f4f5;
+}
+.output-format-container .toggle-button.active {
+  background-color: #328E6E;
+  color: #fff;
 }
 #counter {
-  margin: 10px 0px;
-  text-align: center;
-  font-size: 16px;
-  height: 20px;
-  color: #747574;
+  font-size: 14px;
+  color: #71717a;
+}
+#counter b {
+  color: #18181d;
 }
 .process-button {
-  background-color: #67AE6E;
+  background-color: #328E6E;
   color: #fff;
   font-size: 25px;
+  margin-top: 12px;
   border: none;
   width: 100%;
-  border-radius: 2rem;
+  border-radius: 12px;
   height: 50px;
   cursor: pointer;
 }
 .process-button:hover {
-  background-color: #66a36c;
+  background-color: #2c8062;
 }
 .process-button:focus {
   outline: none;
@@ -132,6 +160,6 @@ p {
   justify-content: center;
   align-items: center;
   height: 60px;
-  background-color: #67AE6E;
+  background-color: #2c8062;
   color: #F2EFE7;
 }
