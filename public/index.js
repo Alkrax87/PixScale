@@ -1,5 +1,6 @@
 const input = document.getElementById("input-file");
 const counter = document.getElementById("counter");
+const previewContainer = document.getElementById("preview-section");
 const preview = document.getElementById("preview");
 
 let selectedFiles = [];
@@ -8,51 +9,56 @@ input.addEventListener("change", uploadImages);
 
 function uploadImages() {
   const files = Array.from(input.files);
-  selectedFiles = files;
-  counter.innerHTML = `<b>${files.length}</b> ${files.length === 1 ? 'file' : 'files'} selected`;
 
-  preview.innerHTML = "";
+  if (files.length > 0) {
+    previewContainer.classList.remove("hidden")
 
-  files.forEach((file, index) => {
-    const reader = new FileReader();
+    selectedFiles = files;
+    counter.innerHTML = `<b>${files.length}</b> ${files.length === 1 ? 'file' : 'files'} selected`;
 
-    reader.onload = (e) => {
-      const card = document.createElement("div");
-      card.className = "preview-card";
+    preview.innerHTML = "";
 
-      const img = document.createElement("img");
-      img.src = e.target.result;
+    files.forEach((file, index) => {
+      const reader = new FileReader();
 
-      const info = document.createElement("div");
-      info.className = "preview-info";
+      reader.onload = (e) => {
+        const card = document.createElement("div");
+        card.className = "preview-card";
 
-      const name = document.createElement("p");
-      name.className = "preview-name";
-      name.innerText = file.name;
+        const img = document.createElement("img");
+        img.src = e.target.result;
 
-      const size = document.createElement("p");
-      size.className = "preview-size";
-      size.innerText = `${(file.size / 1024).toFixed(2)} KB`;
+        const info = document.createElement("div");
+        info.className = "preview-info";
 
-      info.appendChild(name);
-      info.appendChild(size);
+        const name = document.createElement("p");
+        name.className = "preview-name";
+        name.innerText = file.name;
 
-      const removeBtn = document.createElement("button");
-      removeBtn.innerHTML = "✖";
-      removeBtn.onclick = () => {
-        selectedFiles.splice(index, 1);
-        updateInputFiles();
-        uploadImages();
-      };
+        const size = document.createElement("p");
+        size.className = "preview-size";
+        size.innerText = `${(file.size / 1024).toFixed(2)} KB`;
 
-      card.appendChild(img);
-      card.appendChild(info);
-      card.appendChild(removeBtn);
-      preview.appendChild(card);
-    }
+        info.appendChild(name);
+        info.appendChild(size);
 
-    reader.readAsDataURL(file);
-  });
+        const removeBtn = document.createElement("button");
+        removeBtn.innerHTML = "✖";
+        removeBtn.onclick = () => {
+          selectedFiles.splice(index, 1);
+          updateInputFiles();
+          uploadImages();
+        };
+
+        card.appendChild(img);
+        card.appendChild(info);
+        card.appendChild(removeBtn);
+        preview.appendChild(card);
+      }
+
+      reader.readAsDataURL(file);
+    });
+  }
 }
 
 function updateInputFiles() {
