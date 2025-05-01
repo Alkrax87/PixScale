@@ -1,16 +1,64 @@
 const input = document.getElementById("input-file");
 const counter = document.getElementById("counter");
+const preview = document.getElementById("preview");
+
+let selectedFiles = [];
 
 input.addEventListener("change", uploadImages);
 
 function uploadImages() {
-  if (input.files.length > 0) {
-    if (input.files.length > 1) {
-      counter.innerHTML = `<b>${input.files.length}</b> files selected`;
-    } else {
-      counter.innerHTML = `<b>${input.files.length}</b> file selected`;
+  const files = Array.from(input.files);
+  selectedFiles = files;
+  counter.innerHTML = `<b>${files.length}</b> ${files.length === 1 ? 'file' : 'files'} selected`;
+
+  preview.innerHTML = "";
+
+  files.forEach((file, index) => {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const card = document.createElement("div");
+      card.className = "preview-card";
+
+      const img = document.createElement("img");
+      img.src = e.target.result;
+
+      const info = document.createElement("div");
+      info.className = "preview-info";
+
+      const name = document.createElement("p");
+      name.className = "preview-name";
+      name.innerText = file.name;
+
+      const size = document.createElement("p");
+      size.className = "preview-size";
+      size.innerText = `${(file.size / 1024).toFixed(2)} KB`;
+
+      info.appendChild(name);
+      info.appendChild(size);
+
+      const removeBtn = document.createElement("button");
+      removeBtn.innerHTML = "✖";
+      removeBtn.onclick = () => {
+        selectedFiles.splice(index, 1);
+        updateInputFiles();
+        uploadImages();
+      };
+
+      card.appendChild(img);
+      card.appendChild(info);
+      card.appendChild(removeBtn);
+      preview.appendChild(card);
     }
-  }
+
+    reader.readAsDataURL(file);
+  });
+}
+
+function updateInputFiles() {
+  const dataTransfer = new DataTransfer();
+  selectedFiles.forEach(file => dataTransfer.items.add(file));
+  input.files = dataTransfer.files;
 }
 
 const buttons = document.querySelectorAll(".toggle-button");

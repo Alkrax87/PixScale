@@ -17,6 +17,7 @@
       </div>
     </header>
     <main class="container">
+      <!-- Input -->
       <form id="form-input" action="/upload" method="POST" enctype="multipart/form-data">
         <div class="input-container">
           <label class="drop-area" for="input-file">
@@ -37,6 +38,11 @@
         </div>
         <button class="process-button" type="submit">Upload Images</button>
       </form>
+      <!-- Preview -->
+      <div class="preview-section">
+        <h4>Image Previews</h4>
+        <div id="preview"></div>
+      </div>
     </main>
     <footer>
       <div class="footer-container">
