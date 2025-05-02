@@ -2,6 +2,7 @@ const input = document.getElementById("input-file");
 const counter = document.getElementById("counter");
 const previewContainer = document.getElementById("preview-section");
 const preview = document.getElementById("preview");
+const formatInput = document.getElementById("input-format");
 
 let selectedFiles = [];
 
@@ -73,5 +74,6 @@ buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
     buttons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
+    formatInput.value = btn.textContent.toLocaleLowerCase();
   });
 });

@@ -36,24 +36,38 @@ app.post('/upload', upload.array('images'), async (req, res) => {
 
   const processedNames = [];
 
+  const format = req.body.format;
+
   // Proccess iamges
   for (const file of req.files) {
     const inputPath = file.path;
-    const outputName = `${path.parse(file.originalname).name}.webp`;
+    const outputName = `${path.parse(file.originalname).name}.${format}`;
     const outputPath = path.join('processed', outputName);
 
     try {
-      await sharp(inputPath)
-        .webp({ quality: 75 })
-        .toFile(outputPath);
+      const image = sharp(inputPath);
+      switch (format) {
+        case 'webp':
+          await image.webp({ quality: 75 }).toFile(outputPath);
+          break;
+        case 'png':
+          await image.png({ quality: 75 }).toFile(outputPath);
+          break;
+        case 'jpeg':
+          await image.jpeg({ quality: 75 }).toFile(outputPath);
+          break;
+        case 'avif':
+          await image.avif({ quality: 75 }).toFile(outputPath);
+          break;
+        default:
+          throw new Error(`Format not supported: ${format}`);
+      }
 
       processedNames.push(outputName);
-
       fs.unlinkSync(inputPath);
     } catch (error) {
       console.log(`Error processing ${file.originalname}: `, error);
     }
-
   }
 
   res.sendFile(path.join(__dirname, '../public', 'converted.html'));
