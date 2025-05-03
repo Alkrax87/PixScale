@@ -73,6 +73,22 @@ header {
   font-weight: 500;
   padding: 4px 8px;
 }
+/* Footer */
+footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #2c8062;
+  color: #f2efe7;
+  padding: 12px;
+}
+footer p:nth-child(1){
+  font-size: 14px;
+}
+footer p:nth-child(2){
+  font-size: 12px;
+}
 
 /* Body */
 .container {
@@ -237,15 +253,4 @@ header {
 .message-container span {
   color: #328e6e;
   font-weight: 1000;
-}
-
-/* Bottom */
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  background-color: #2c8062;
-  color: #f2efe7;
 }
