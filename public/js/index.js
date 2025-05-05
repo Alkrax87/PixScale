@@ -17,3 +17,15 @@ toogleTabButtons.forEach((btn) => {
     document.getElementById(btn.value).classList.remove('hidden');
   });
 });
+
+/* Output format buttons functionality */
+const toggleFormatButtons = document.querySelectorAll('.toggle-format');
+
+toggleFormatButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    toggleFormatButtons.forEach((button) => {
+      button.classList.remove('active');
+    });
+    btn.classList.add('active');
+  });
+});
