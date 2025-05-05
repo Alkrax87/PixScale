@@ -44,12 +44,12 @@
         <div class="card-item">
           <p class="section-title"><i class="fa-solid fa-gear"></i> Processing Tools</p>
           <div class="processing-tools-tab-container">
-            <button type="button" class="active">Format</button>
-            <button type="button">Size</button>
-            <button type="button">Quality</button>
+            <button type="button" class="toggle-tab active" value="format-container">Format</button>
+            <button type="button" class="toggle-tab" value="size-container">Size</button>
+            <button type="button" class="toggle-tab" value="quality-container">Quality</button>
           </div>
           <!-- Format -->
-          <div id="format-container">
+          <div id="format-container" class="tab">
             <p class="processing-tools-title">Output Format</p>
             <div class="format-button-container">
               <button type="button" class="active">WEBP</button>
@@ -60,7 +60,7 @@
             </div>
           </div>
           <!-- Size -->
-          <div id="size-container" class="hidden">
+          <div id="size-container" class="tab hidden">
             <p class="processing-tools-title">Aspect Ratio</p>
             <div class="aspect-ratio-container">
               <select name="" id="">
@@ -93,7 +93,7 @@
             </div>
           </div>
           <!-- Quality -->
-          <div id="quality-container" class="hidden">
+          <div id="quality-container" class="tab hidden">
             <div class="inline-container">
               <p class="processing-tools-title">Image Quality</p>
               <p id="" class="quality-slider-value">80%</p>
@@ -155,4 +155,5 @@
     </footer>
   </body>
   <script src="index.js"></script>
+  <script src="js/index.js"></script>
 </html>
