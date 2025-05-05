@@ -1,4 +1,6 @@
-/* Global */
+/* ================================================ */
+/* =======================Global=================== */
+/* ================================================ */
 * {
   font-family: "Geist", sans-serif;
   font-optical-sizing: auto;
@@ -38,8 +40,9 @@ button:focus {
 .hidden {
   display: none;
 }
-
-/* Header */
+/* ====================== */
+/* =========Header======= */
+/* ====================== */
 header {
   background-color: #2c8062;
   color: #f2efe7;
@@ -73,7 +76,19 @@ header {
   font-weight: 500;
   padding: 4px 8px;
 }
-/* Footer */
+/* ====================== */
+/* ==========Main======== */
+/* ====================== */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+/* ====================== */
+/* =========Footer======= */
+/* ====================== */
 footer{
   display: flex;
   flex-direction: column;
@@ -89,31 +104,75 @@ footer p:nth-child(1){
 footer p:nth-child(2){
   font-size: 12px;
 }
-
-/* Body */
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* ================================================ */
+/* ================Content Layout================== */
+/* ================================================ */
+.content-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: auto;
+  gap: 12px;
+  padding: 12px;
 }
-.input-container {
+@media screen and (min-width: 1240px) {
+  .content-container {
+    width: 1160px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .content-container {
+    width: 360px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .content-container {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+}
+.card-item {
   border: 1px solid #e5e7eb;
   padding: 24px;
   border-radius: 12px;
-  text-align: center;
+  height: fit-content;
 }
+.card-item:first-child {
+  grid-row: span 3;
+  height: auto;
+}
+.card-item:last-child {
+  grid-row-start: 4;
+}
+/* ================================================ */
+/* ====================Content===================== */
+/* ================================================ */
+.section-title {
+  color: #328e6e;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.inline-container {
+  display: flex;
+  justify-content: space-between;
+}
+/* ================================================ */
+/* =================Content Upload================= */
+/* ================================================ */
 .drop-area {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 600px;
+  height: 300px;
   padding: 48px;
   border: #e5e7eb dashed 2px;
   border-radius: 12px;
   cursor: pointer;
-  margin-bottom: 12px;
+  margin: 12px 0px;
 }
 .drop-area:hover {
   background-color: #f4f4f580;
@@ -131,28 +190,21 @@ footer p:nth-child(2){
   font-size: 15px;
   color: #71717a;
 }
-.output-format-container {
+.drop-counter-container {
   display: flex;
-  justify-content: center;
-  padding: 12px 0px;
+  align-items: center;
   gap: 12px;
 }
-.output-format-container .toggle-button {
-  background-color: #fff;
-  border: #e5e7eb 1px solid;
-  padding: 10px 0;
-  width: 75px;
-  color: #328e6e;
-  font-weight: 500;
-  border-radius: 6px;
-  cursor: pointer;
+.drop-counter-container button {
+  background-color: #ffffff;
+  color: #71717a;
+  border-radius: 8px;
+  border: none;
+  width: 32px;
+  height: 32px;
 }
-.output-format-container .toggle-button:hover {
+.drop-counter-container button:hover {
   background-color: #f4f4f5;
-}
-.output-format-container .toggle-button.active {
-  background-color: #328e6e;
-  color: #fff;
 }
 #counter {
   font-size: 14px;
@@ -161,31 +213,185 @@ footer p:nth-child(2){
 #counter b {
   color: #18181d;
 }
-.process-button {
-  background-color: #328e6e;
-  color: #fff;
-  font-size: 25px;
+/* ================================================ */
+/* =============Content Processing Tools=========== */
+/* ================================================ */
+.processing-tools-title {
+  color: #328e6e;
+  font-size: 14px;
+  font-weight: 500;
   margin-top: 12px;
+}
+/* Tabs Container */
+.processing-tools-tab-container {
+  display: flex;
+  background-color: #F4F4F5;
+  border-radius: 8px;
+  padding: 4px;
+  margin-top: 12px;
+}
+.processing-tools-tab-container button {
+  color: #71717a;
+  font-weight: 500;
+  border-radius: 4px;
   border: none;
   width: 100%;
-  border-radius: 12px;
-  height: 50px;
+  height: 32px;
   cursor: pointer;
 }
-.process-button:hover {
-  background-color: #2c8062;
+.processing-tools-tab-container button.active {
+  background-color: #ffffff;
+  color: #328e6e;
 }
-.preview-section {
-  width: 750px;
-  text-align: start;
-  margin: 20px 0px;
+/* ====================== */
+/* =========Format======= */
+/* ====================== */
+.format-button-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
 }
-.preview-title {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 20px;
+.format-button-container button {
+  background-color: #ffffff;
+  color: #328e6e;
+  border: #e4e4e7 1px solid;
+  font-weight: 500;
+  border-radius: 8px;
+  width: 100%;
+  height: 36px;
+  cursor: pointer;
+}
+.format-button-container button.active {
+  background-color: #328e6e;
+  color: #ffffff;
+}
+/* ====================== */
+/* ==========Size======== */
+/* ====================== */
+.aspect-ratio-container select {
+  width: 100%;
+  border: #e5e7eb 1px solid;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+  color: #328e6e;
+  margin-top: 8px;
+}
+.aspect-ratio-container select:focus {
+  outline: none;
+  border-color: #328e6e;
+}
+.object-fit-container {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+.object-fit-container input {
+  margin: 0px;
+}
+.object-fit-container div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.size-options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+.size-options-container input {
+  margin: 0px;
+}
+.size-options-container div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.custom-size-container {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+.custom-size-container div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-size: 12px;
+}
+.custom-size-container input {
+  border: #e5e7eb 1px solid;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+  color: #328e6e;
+}
+/* ====================== */
+/* ========Quality======= */
+/* ====================== */
+.quality-slider-value {
+  color: #328e6e;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+.quality-slider-container input {
+  width: 100%;
+}
+.quality-slider-labels-container {
+  display: flex;
+  justify-content: space-between;
+  color: #71717a;
+  font-size: 12px;
+}
+.metadata-toggle {
+  margin-top: 12px;
+}
+.metadata-label {
+  color: #71717a;
+  font-size: 12px;
+}
+/* ================================================ */
+/* ==================Content Summary=============== */
+/* ================================================ */
+.summary-empty {
+  color: #71717a;
+  font-size: 14px;
+  margin-top: 12px;
+}
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 14px;
+}
+.summary-title {
+  color: #71717a;
+}
+.summary-value {
+  color: #328e6e;
   font-weight: 500;
 }
+.summary-submit {
+  background-color: #328e6e;
+  color: #ffffff;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  padding: 16px 40px;
+  margin-top: 16px;
+}
+.summary-submit:hover {
+  background-color: #338f6fe6;
+}
+/* ================================================ */
+/* ====================Card Preview================ */
+/* ================================================ */
 #preview {
   display: flex;
   flex-direction: column;
@@ -229,8 +435,9 @@ footer p:nth-child(2){
   font-size: 14px;
   color: #71717a;
 }
-
-/* Card */
+/* ================================================ */
+/* ====================Card Message================ */
+/* ================================================ */
 .message-container {
   border: 1px solid #e5e7eb;
   background-color: #fff;

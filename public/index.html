@@ -22,32 +22,131 @@
         <a href="/about"><i class="fa-solid fa-circle-question"></i> About</a>
       </div>
     </header>
-    <main class="container">
-      <!-- Input -->
-      <form id="form-input" action="/upload" method="POST" enctype="multipart/form-data">
-        <div class="input-container">
+    <main>
+      <!-- Content -->
+      <div class="content-container">
+        <!-- Upload Section -->
+        <div class="card-item">
           <label class="drop-area" for="input-file">
-            <input id="input-file" type="file" name="images" accept=".png, .jpg, .jpeg, .webp" multiple hidden>
+            <input id="input-file" type="file" name="images" accept=".webp, .png, .jpeg, .jpg, .avif, .tiff" multiple hidden>
             <img class="drop-image" src="./assets/svg/upload.svg" alt="upload-image">
             <p class="drop-message">Drag and drop images here</p>
             <p class="drop-click">or click to browse files</p>
           </label>
-          <p>Select output format:</p>
-          <input id="input-format" type="hidden" name="format" value="webp">
-          <div class="output-format-container">
-            <button type="button" class="toggle-button active">WEBP</button>
-            <button type="button" class="toggle-button">PNG</button>
-            <button type="button" class="toggle-button">JPEG</button>
-            <button type="button" class="toggle-button">AVIF</button>
+          <div class="drop-counter-container">
+            <p id="counter">No images selected</p>
+            <button type="button">
+              <i class="fa-regular fa-circle-question"></i>
+            </button>
           </div>
-          <p id="counter">No images selected</p>
         </div>
-        <button class="process-button" type="submit">Upload Images</button>
-      </form>
-      <!-- Preview -->
-      <div id="preview-section" class="preview-section hidden">
-        <p class="preview-title">Image Previews</p>
-        <div id="preview"></div>
+        <!-- Processing Tools -->
+        <div class="card-item">
+          <p class="section-title"><i class="fa-solid fa-gear"></i> Processing Tools</p>
+          <div class="processing-tools-tab-container">
+            <button type="button" class="active">Format</button>
+            <button type="button">Size</button>
+            <button type="button">Quality</button>
+          </div>
+          <!-- Format -->
+          <div id="format-container">
+            <p class="processing-tools-title">Output Format</p>
+            <div class="format-button-container">
+              <button type="button" class="active">WEBP</button>
+              <button type="button">PNG</button>
+              <button type="button">JPEG</button>
+              <button type="button">AVIF</button>
+              <button type="button">TIFF</button>
+            </div>
+          </div>
+          <!-- Size -->
+          <div id="size-container" class="hidden">
+            <p class="processing-tools-title">Aspect Ratio</p>
+            <div class="aspect-ratio-container">
+              <select name="" id="">
+                <option value="original">Original</option>
+                <option value="1:1">1:1 (Square)</option>
+                <option value="4:3">4:3</option>
+                <option value="16:9">16:9</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+            <p class="processing-tools-title">Object Fit</p>
+            <div class="object-fit-container">
+              <div><input type="radio" name="test-fit" id="" checked> Cover</div>
+              <div><input type="radio" name="test-fit" id=""> Contain</div>
+            </div>
+            <p class="processing-tools-title">Size Options</p>
+            <div class="size-options-container">
+              <div><input type="radio" name="text-size" id="" checked>Keep original size</div>
+              <div><input type="radio" name="text-size" id="">Custom size</div>
+              <div id="" class="custom-size-container">
+                <div>
+                  <label for="width">Width (px)</label>
+                  <input type="number" name="" id="" min="0" value="800">
+                </div>
+                <div>
+                  <label for="width">Height (px)</label>
+                  <input type="number" name="" id="" min="0" value="600">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Quality -->
+          <div id="quality-container" class="hidden">
+            <div class="inline-container">
+              <p class="processing-tools-title">Image Quality</p>
+              <p id="" class="quality-slider-value">80%</p>
+            </div>
+            <div class="quality-slider-container">
+              <input type="range" name="" id="" min="0" max="100" value="80">
+              <div class="quality-slider-labels-container">
+                <p>Lower quality, smaller file</p>
+                <p>Higher quality</p>
+              </div>
+            </div>
+            <div class="inline-container">
+              <p class="processing-tools-title">Optimize metadata</p>
+              <input type="checkbox" name="" id="" class="metadata-toggle" checked>
+            </div>
+            <p class="metadata-label">Remove unnecessary metadata to reduce file size</p>
+          </div>
+        </div>
+        <!-- Processing Summary -->
+        <div class="card-item">
+          <p class="section-title"><i class="fa-regular fa-image"></i> Processing Summary</p>
+          <div class="summary-empty">
+            <p>Upload images to see processing details</p>
+          </div>
+          <div id="summary-container" class="hidden">
+            <div class="summary-item">
+              <p class="summary-title">Images:</p>
+              <p class="summary-value">1</p>
+            </div>
+            <div class="summary-item">
+              <p class="summary-title">Format:</p>
+              <p class="summary-value">WEBP</p>
+            </div>
+            <div class="summary-item">
+              <p class="summary-title">Quality:</p>
+              <p class="summary-value">80%</p>
+            </div>
+            <div class="summary-item">
+              <p class="summary-title">Aspect Ratio:</p>
+              <p class="summary-value">original</p>
+            </div>
+            <div class="summary-item">
+              <p class="summary-title">Size:</p>
+              <p class="summary-value">original</p>
+            </div>
+            <button class="summary-submit"><i class="fa-regular fa-image"></i> Process Images</button>
+          </div>
+        </div>
+        <!-- Preview -->
+        <div id="preview-section" class="card-item hidden">
+          <p class="section-title">Image Preview</p>
+          <div id="preview-container"></div>
+        </div>
       </div>
     </main>
     <footer>
@@ -55,6 +154,5 @@
       <p>© 2025 PixScale. Developed by Alkrax87. All rights reserved.</p>
     </footer>
   </body>
-
   <script src="index.js"></script>
 </html>
