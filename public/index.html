@@ -78,17 +78,17 @@
             </div>
             <p class="processing-tools-title">Size Options</p>
             <div class="size-options-container">
-              <div><input type="radio" name="text-size" id="" checked>Keep original size</div>
-              <div><input type="radio" name="text-size" id="">Custom size</div>
-              <div id="" class="custom-size-container">
-                <div>
-                  <label for="width">Width (px)</label>
-                  <input type="number" name="" id="" min="0" value="800">
-                </div>
-                <div>
-                  <label for="width">Height (px)</label>
-                  <input type="number" name="" id="" min="0" value="600">
-                </div>
+              <div><input type="radio" name="text-size" id="keep-original" checked>Keep original size</div>
+              <div><input type="radio" name="text-size" id="custom-size">Custom size</div>
+            </div>
+            <div id="custom-size-section" class="custom-size-container hidden">
+              <div>
+                <label for="width">Width (px)</label>
+                <input type="number" name="" id="" min="0" value="800">
+              </div>
+              <div>
+                <label for="width">Height (px)</label>
+                <input type="number" name="" id="" min="0" value="600">
               </div>
             </div>
           </div>

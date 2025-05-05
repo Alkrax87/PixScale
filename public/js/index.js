@@ -29,3 +29,22 @@ toggleFormatButtons.forEach((btn) => {
     btn.classList.add('active');
   });
 });
+
+/* Size Options */
+const customSizeSection = document.getElementById('custom-size-section');
+const customSizeRadio = document.getElementById('custom-size');
+const keepOriginalSizeRadio = document.getElementById('keep-original');
+let sizeStatus = false;
+
+customSizeRadio.addEventListener('change', () => {
+  if (customSizeRadio.checked) {
+    sizeStatus = true;
+    customSizeSection.classList.remove('hidden');
+  }
+});
+keepOriginalSizeRadio.addEventListener('change', () => {
+  if (keepOriginalSizeRadio.checked) {
+    sizeStatus = false;
+    customSizeSection.classList.add('hidden');
+  }
+});
