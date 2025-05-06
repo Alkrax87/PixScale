@@ -48,3 +48,19 @@ keepOriginalSizeRadio.addEventListener('change', () => {
     customSizeSection.classList.add('hidden');
   }
 });
+
+/* Summary Container */
+const summaryEmpty = document.getElementById('summary-empty');
+const summaryContainer = document.getElementById('summary-container');
+const imagesInput = document.getElementById('input-file');
+
+imagesInput.addEventListener('change', () => {
+  const files = Array.from(imagesInput.files);
+  if (files.length > 0) {
+    summaryEmpty.classList.add('hidden');
+    summaryContainer.classList.remove('hidden');
+  } else {
+    summaryEmpty.classList.remove('hidden');
+    summaryContainer.classList.add('hidden');
+  }
+});
