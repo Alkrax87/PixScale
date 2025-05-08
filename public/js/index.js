@@ -21,7 +21,7 @@ toogleTabButtons.forEach((btn) => {
   });
 });
 
-/* Output format buttons functionality */
+/* Format Section */
 const toggleFormatButtons = document.querySelectorAll('.toggle-format');
 const inputFormat = document.getElementById("input-format");
 
@@ -35,7 +35,7 @@ toggleFormatButtons.forEach((btn) => {
   });
 });
 
-/* Size Options */
+/* Size Section */
 const customSizeSection = document.getElementById('custom-size-section');
 const customSizeRadio = document.getElementById('custom-size');
 const keepOriginalSizeRadio = document.getElementById('keep-original');
@@ -54,6 +54,14 @@ keepOriginalSizeRadio.addEventListener('change', () => {
   }
 });
 
+/* Quality Section  */
+const inputQuality = document.getElementById("input-quality");
+const qualityValue = document.getElementById('quality-value');
+
+inputQuality.addEventListener('input', () => {
+  qualityValue.innerHTML = inputQuality.value + '%'
+});
+
 /* Summary Container */
 const summaryEmpty = document.getElementById('summary-empty');
 const summaryContainer = document.getElementById('summary-container');
@@ -68,3 +76,8 @@ imagesInput.addEventListener('change', () => {
     summaryContainer.classList.add('hidden');
   }
 });
+
+const inputAspectRatio = document.getElementById("input-aspect-ratio");
+const inputWidth = document.getElementById("input-width");
+const inputHeight = document.getElementById("input-height");
+const inputMetadata = document.getElementById("input-metadata");

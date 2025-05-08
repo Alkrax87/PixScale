@@ -25,124 +25,126 @@
     <main>
       <!-- Content -->
       <div class="content-container">
-        <!-- Upload Section -->
-        <div class="card-item">
-          <label class="drop-area" for="input-file">
-            <input type="file" id="input-file" name="images" accept=".webp, .png, .jpeg, .jpg, .avif, .tiff" multiple hidden>
-            <img class="drop-image" src="./assets/svg/upload.svg" alt="upload-image">
-            <p class="drop-message">Drag and drop images here</p>
-            <p class="drop-click">or click to browse files</p>
-          </label>
-          <div class="drop-counter-container">
-            <p id="counter">No images selected</p>
-            <button type="button">
-              <i class="fa-regular fa-circle-question"></i>
-            </button>
-          </div>
-        </div>
-        <!-- Processing Tools -->
-        <div class="card-item">
-          <p class="section-title"><i class="fa-solid fa-gear"></i> Processing Tools</p>
-          <div class="processing-tools-tab-container">
-            <button type="button" class="toggle-tab active" value="format-container">Format</button>
-            <button type="button" class="toggle-tab" value="size-container">Size</button>
-            <button type="button" class="toggle-tab" value="quality-container">Quality</button>
-          </div>
-          <!-- Format -->
-          <div id="format-container" class="tab">
-            <p class="processing-tools-title">Output Format</p>
-            <input type="hidden" id="input-format" name="format" value="webp">
-            <div class="format-button-container">
-              <button type="button" value="webp" class="toggle-format active">WEBP</button>
-              <button type="button" value="png" class="toggle-format">PNG</button>
-              <button type="button" value="jpeg" class="toggle-format">JPEG</button>
-              <button type="button" value="avif" class="toggle-format">AVIF</button>
-              <button type="button" value="tiff" class="toggle-format">TIFF</button>
+        <form id="form-input" action="/test" method="POST" enctype="multipart/form-data">
+          <!-- Upload Section -->
+          <div class="card-item">
+            <label class="drop-area" for="input-file">
+              <input type="file" id="input-file" name="images" accept=".webp, .png, .jpeg, .jpg, .avif, .tiff" multiple hidden>
+              <img class="drop-image" src="./assets/svg/upload.svg" alt="upload-image">
+              <p class="drop-message">Drag and drop images here</p>
+              <p class="drop-click">or click to browse files</p>
+            </label>
+            <div class="drop-counter-container">
+              <p id="counter">No images selected</p>
+              <button type="button">
+                <i class="fa-regular fa-circle-question"></i>
+              </button>
             </div>
           </div>
-          <!-- Size -->
-          <div id="size-container" class="tab hidden">
-            <p class="processing-tools-title">Aspect Ratio</p>
-            <div class="aspect-ratio-container">
-              <select name="" id="">
-                <option value="original">Original</option>
-                <option value="1:1">1:1 (Square)</option>
-                <option value="4:3">4:3</option>
-                <option value="16:9">16:9</option>
-                <option value="custom">Custom</option>
-              </select>
+          <!-- Processing Tools -->
+          <div class="card-item">
+            <p class="section-title"><i class="fa-solid fa-gear"></i> Processing Tools</p>
+            <div class="processing-tools-tab-container">
+              <button type="button" class="toggle-tab active" value="format-container">Format</button>
+              <button type="button" class="toggle-tab" value="size-container">Size</button>
+              <button type="button" class="toggle-tab" value="quality-container">Quality</button>
             </div>
-            <p class="processing-tools-title">Object Fit</p>
-            <div class="object-fit-container">
-              <div><input type="radio" name="test-fit" id="" checked> Cover</div>
-              <div><input type="radio" name="test-fit" id=""> Contain</div>
-            </div>
-            <p class="processing-tools-title">Size Options</p>
-            <div class="size-options-container">
-              <div><input type="radio" name="text-size" id="keep-original" checked>Keep original size</div>
-              <div><input type="radio" name="text-size" id="custom-size">Custom size</div>
-            </div>
-            <div id="custom-size-section" class="custom-size-container hidden">
-              <div>
-                <label for="width">Width (px)</label>
-                <input type="number" name="" id="" min="0" value="800">
-              </div>
-              <div>
-                <label for="width">Height (px)</label>
-                <input type="number" name="" id="" min="0" value="600">
+            <!-- Format -->
+            <div id="format-container" class="tab">
+              <p class="processing-tools-title">Output Format</p>
+              <input type="hidden" id="input-format" name="format" value="webp">
+              <div class="format-button-container">
+                <button type="button" value="webp" class="toggle-format active">WEBP</button>
+                <button type="button" value="png" class="toggle-format">PNG</button>
+                <button type="button" value="jpeg" class="toggle-format">JPEG</button>
+                <button type="button" value="avif" class="toggle-format">AVIF</button>
+                <button type="button" value="tiff" class="toggle-format">TIFF</button>
               </div>
             </div>
-          </div>
-          <!-- Quality -->
-          <div id="quality-container" class="tab hidden">
-            <div class="inline-container">
-              <p class="processing-tools-title">Image Quality</p>
-              <p id="" class="quality-slider-value">80%</p>
-            </div>
-            <div class="quality-slider-container">
-              <input type="range" name="" id="" min="0" max="100" value="80">
-              <div class="quality-slider-labels-container">
-                <p>Lower quality, smaller file</p>
-                <p>Higher quality</p>
+            <!-- Size -->
+            <div id="size-container" class="tab hidden">
+              <p class="processing-tools-title">Aspect Ratio</p>
+              <div class="aspect-ratio-container">
+                <select name="aspectRatio" id="input-aspect-ratio">
+                  <option value="original" selected>Original</option>
+                  <option value="1:1">1:1 (Square)</option>
+                  <option value="4:3">4:3</option>
+                  <option value="16:9">16:9</option>
+                  <option value="custom">Custom</option>
+                </select>
+              </div>
+              <p class="processing-tools-title">Object Fit</p>
+              <div class="object-fit-container">
+                <div><input type="radio" name="objectFit" value="cover" checked> Cover</div>
+                <div><input type="radio" name="objectFit" value="contain"> Contain</div>
+              </div>
+              <p class="processing-tools-title">Size Options</p>
+              <div class="size-options-container">
+                <div><input type="radio" name="sizeOptions" value="keep-original" id="keep-original" checked>Keep original size</div>
+                <div><input type="radio" name="sizeOptions" value="custom-size" id="custom-size">Custom size</div>
+              </div>
+              <div id="custom-size-section" class="custom-size-container hidden">
+                <div>
+                  <label for="width">Width (px)</label>
+                  <input type="number" name="width" id="input-width" min="0" value="800">
+                </div>
+                <div>
+                  <label for="width">Height (px)</label>
+                  <input type="number" name="height" id="input-height" min="0" value="600">
+                </div>
               </div>
             </div>
-            <div class="inline-container">
-              <p class="processing-tools-title">Optimize metadata</p>
-              <input type="checkbox" name="" id="" class="metadata-toggle" checked>
+            <!-- Quality -->
+            <div id="quality-container" class="tab hidden">
+              <div class="inline-container">
+                <p class="processing-tools-title">Image Quality</p>
+                <p id="quality-value" class="quality-slider-value">80%</p>
+              </div>
+              <div class="quality-slider-container">
+                <input type="range" name="quality" id="input-quality" min="0" max="100" value="80">
+                <div class="quality-slider-labels-container">
+                  <p>Lower quality, smaller file</p>
+                  <p>Higher quality</p>
+                </div>
+              </div>
+              <div class="inline-container">
+                <p class="processing-tools-title">Optimize metadata</p>
+                <input type="checkbox" name="optimizeMetadata" id="input-metadata" class="metadata-toggle" checked>
+              </div>
+              <p class="metadata-label">Remove unnecessary metadata to reduce file size</p>
             </div>
-            <p class="metadata-label">Remove unnecessary metadata to reduce file size</p>
           </div>
-        </div>
-        <!-- Processing Summary -->
-        <div class="card-item">
-          <p class="section-title"><i class="fa-regular fa-image"></i> Processing Summary</p>
-          <div id="summary-empty" class="summary-empty">
-            <p>Upload images to see processing details</p>
+          <!-- Processing Summary -->
+          <div class="card-item">
+            <p class="section-title"><i class="fa-regular fa-image"></i> Processing Summary</p>
+            <div id="summary-empty" class="summary-empty">
+              <p>Upload images to see processing details</p>
+            </div>
+            <div id="summary-container" class="hidden">
+              <div class="summary-item">
+                <p class="summary-title">Images:</p>
+                <p class="summary-value">1</p>
+              </div>
+              <div class="summary-item">
+                <p class="summary-title">Format:</p>
+                <p class="summary-value">WEBP</p>
+              </div>
+              <div class="summary-item">
+                <p class="summary-title">Quality:</p>
+                <p class="summary-value">80%</p>
+              </div>
+              <div class="summary-item">
+                <p class="summary-title">Aspect Ratio:</p>
+                <p class="summary-value">original</p>
+              </div>
+              <div class="summary-item">
+                <p class="summary-title">Size:</p>
+                <p class="summary-value">original</p>
+              </div>
+              <button type="submit" class="summary-submit"><i class="fa-regular fa-image"></i> Process Images</button>
+            </div>
           </div>
-          <div id="summary-container" class="hidden">
-            <div class="summary-item">
-              <p class="summary-title">Images:</p>
-              <p class="summary-value">1</p>
-            </div>
-            <div class="summary-item">
-              <p class="summary-title">Format:</p>
-              <p class="summary-value">WEBP</p>
-            </div>
-            <div class="summary-item">
-              <p class="summary-title">Quality:</p>
-              <p class="summary-value">80%</p>
-            </div>
-            <div class="summary-item">
-              <p class="summary-title">Aspect Ratio:</p>
-              <p class="summary-value">original</p>
-            </div>
-            <div class="summary-item">
-              <p class="summary-title">Size:</p>
-              <p class="summary-value">original</p>
-            </div>
-            <button class="summary-submit"><i class="fa-regular fa-image"></i> Process Images</button>
-          </div>
-        </div>
+        </form>
         <!-- Preview -->
         <div id="preview-section" class="card-item hidden">
           <p class="section-title">Image Preview</p>

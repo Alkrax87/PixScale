@@ -142,6 +142,8 @@ footer p:nth-child(2){
 }
 .card-item:last-child {
   grid-row-start: 4;
+  border: none;
+  padding: 0;
 }
 /* ================================================ */
 /* ====================Content===================== */
@@ -404,6 +406,7 @@ footer p:nth-child(2){
   border-radius: 12px;
   display: flex;
   gap: 12px;
+  margin-top: 12px;
 }
 .preview-card img {
   width: 64px;
