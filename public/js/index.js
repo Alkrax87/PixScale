@@ -1,3 +1,6 @@
+/* Images Input */
+const imagesInput = document.getElementById('input-file');
+
 /* Tab section functionality */
 const toogleTabButtons = document.querySelectorAll('.toggle-tab');
 
@@ -20,9 +23,11 @@ toogleTabButtons.forEach((btn) => {
 
 /* Output format buttons functionality */
 const toggleFormatButtons = document.querySelectorAll('.toggle-format');
+const inputFormat = document.getElementById("input-format");
 
 toggleFormatButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
+    inputFormat.value = btn.value;
     toggleFormatButtons.forEach((button) => {
       button.classList.remove('active');
     });
@@ -52,7 +57,6 @@ keepOriginalSizeRadio.addEventListener('change', () => {
 /* Summary Container */
 const summaryEmpty = document.getElementById('summary-empty');
 const summaryContainer = document.getElementById('summary-container');
-const imagesInput = document.getElementById('input-file');
 
 imagesInput.addEventListener('change', () => {
   const files = Array.from(imagesInput.files);
