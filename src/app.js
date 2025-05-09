@@ -34,9 +34,18 @@ app.post('/upload', upload.array('images'), async (req, res) => {
     return res.sendFile(path.join(__dirname, '../public', 'empty.html'));
   }
 
+  // Save image's names
   const processedNames = [];
 
+  // Get options to convert
   const format = req.body.format;
+  // TODO const aspectRatio = req.body.aspectRatio;
+  const objectFit = req.body.objectFit;
+  const sizeOptions = req.body.sizeOptions;
+  const width = parseInt(req.body.width);
+  const height = parseInt(req.body.height);
+  const quality = parseInt(req.body.quality);
+  const optimizeMetadata = req.body.optimizeMetadata === 'on';
 
   // Proccess iamges
   for (const file of req.files) {
@@ -45,19 +54,34 @@ app.post('/upload', upload.array('images'), async (req, res) => {
     const outputPath = path.join('processed', outputName);
 
     try {
-      const image = sharp(inputPath);
+      let image;
+      if (sizeOptions === 'custom-size') {
+        console.log('custom-size');
+        image = sharp(inputPath).resize({ width: width, height: height, fit: objectFit });
+      } else {
+        console.log('original-size');
+        image = sharp(inputPath);
+      }
+
+      if (optimizeMetadata) {
+        image = image.withMetadata();
+      }
+
       switch (format) {
         case 'webp':
-          await image.webp({ quality: 75 }).toFile(outputPath);
+          await image.webp({ quality: quality }).toFile(outputPath);
           break;
         case 'png':
-          await image.png({ quality: 75 }).toFile(outputPath);
+          await image.png({ quality: quality }).toFile(outputPath);
           break;
         case 'jpeg':
-          await image.jpeg({ quality: 75 }).toFile(outputPath);
+          await image.jpeg({ quality: quality }).toFile(outputPath);
           break;
         case 'avif':
-          await image.avif({ quality: 75 }).toFile(outputPath);
+          await image.avif({ quality: quality }).toFile(outputPath);
+          break;
+        case 'tiff':
+          await image.tiff({ quality: quality }).toFile(outputPath);
           break;
         default:
           throw new Error(`Format not supported: ${format}`);
