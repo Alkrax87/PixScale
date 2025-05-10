@@ -56,10 +56,8 @@ app.post('/upload', upload.array('images'), async (req, res) => {
     try {
       let image;
       if (sizeOptions === 'custom-size') {
-        console.log('custom-size');
         image = sharp(inputPath).resize({ width: width, height: height, fit: objectFit });
       } else {
-        console.log('original-size');
         image = sharp(inputPath);
       }
 

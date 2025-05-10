@@ -24,8 +24,8 @@
     </header>
     <main>
       <!-- Content -->
-      <div class="content-container">
-        <form id="form-input" action="/upload" method="POST" enctype="multipart/form-data">
+      <form id="form-input" action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="content-container">
           <!-- Upload Section -->
           <div class="card-item">
             <label class="drop-area" for="input-file">
@@ -63,16 +63,6 @@
             </div>
             <!-- Size -->
             <div id="size-container" class="tab hidden">
-              <p class="processing-tools-title">Aspect Ratio</p>
-              <div class="aspect-ratio-container">
-                <select name="aspectRatio" id="input-aspect-ratio">
-                  <option value="original" selected>Original</option>
-                  <option value="1:1">1:1 (Square)</option>
-                  <option value="4:3">4:3</option>
-                  <option value="16:9">16:9</option>
-                  <option value="custom">Custom</option>
-                </select>
-              </div>
               <p class="processing-tools-title">Object Fit</p>
               <div class="object-fit-container">
                 <div><input type="radio" name="objectFit" value="cover" checked> Cover</div>
@@ -145,13 +135,13 @@
               <button type="submit" class="summary-submit"><i class="fa-regular fa-image"></i> Process Images</button>
             </div>
           </div>
-        </form>
-        <!-- Preview -->
-        <div id="preview-section" class="card-item hidden">
-          <p class="section-title">Image Preview</p>
-          <div id="preview-container"></div>
+          <!-- Preview -->
+          <div id="preview-section" class="card-item hidden">
+            <p class="section-title">Image Preview</p>
+            <div id="preview-container"></div>
+          </div>
         </div>
-      </div>
+      </form>
     </main>
     <footer>
       <p>Made with ❤️ for all</p>
