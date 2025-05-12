@@ -29,6 +29,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public', 'about.html'));
+});
+
 app.post('/upload', upload.array('images'), async (req, res) => {
   if (!req.files || req.files.length === 0) {
     return res.sendFile(path.join(__dirname, '../public', 'empty.html'));
