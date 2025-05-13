@@ -463,3 +463,19 @@ footer p:nth-child(2){
   color: #328e6e;
   font-weight: 1000;
 }
+/* ================================================ */
+/* ====================Back Button================= */
+/* ================================================ */
+.button {
+  background-color: #328e6e;
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 16px 28px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+.button:focus {
+  outline: none;
+  border: none;
+}
