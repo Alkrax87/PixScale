@@ -68,6 +68,7 @@ const summaryContainer = document.getElementById('summary-container');
 
 imagesInput.addEventListener('change', () => {
   const files = Array.from(imagesInput.files);
+  updateImagesCounter(files);
   if (files.length > 0) {
     summaryEmpty.classList.add('hidden');
     summaryContainer.classList.remove('hidden');
@@ -81,3 +82,15 @@ const inputAspectRatio = document.getElementById("input-aspect-ratio");
 const inputWidth = document.getElementById("input-width");
 const inputHeight = document.getElementById("input-height");
 const inputMetadata = document.getElementById("input-metadata");
+
+/* Image Counter */
+const imageCounter = document.getElementById("counter");
+const summaryCounter = document.getElementById("summary-image-counter");
+function updateImagesCounter(files) {
+  if (files.length > 0) {
+    imageCounter.innerHTML = `${ files.length } images uploaded`;
+    summaryCounter.innerHTML = `${ files.length }`;
+  } else {
+    imageCounter.innerHTML = "No images selected";
+  }
+}
