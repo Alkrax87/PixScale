@@ -59,9 +59,11 @@ keepOriginalSizeRadio.addEventListener('change', () => {
 /* Quality Section  */
 const inputQuality = document.getElementById("input-quality");
 const qualityValue = document.getElementById('quality-value');
+const summaryQuality = document.getElementById("summary-quality");
 
 inputQuality.addEventListener('input', () => {
   qualityValue.innerHTML = inputQuality.value + '%'
+  summaryQuality.innerHTML = inputQuality.value + '%'
 });
 
 /* Summary Container */
