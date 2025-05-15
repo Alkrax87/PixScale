@@ -24,10 +24,12 @@ toogleTabButtons.forEach((btn) => {
 /* Format Section */
 const toggleFormatButtons = document.querySelectorAll('.toggle-format');
 const inputFormat = document.getElementById("input-format");
+const summaryFormat = document.getElementById("summary-format");
 
 toggleFormatButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
     inputFormat.value = btn.value;
+    summaryFormat.innerHTML = btn.value.toUpperCase();
     toggleFormatButtons.forEach((button) => {
       button.classList.remove('active');
     });
