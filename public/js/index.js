@@ -21,7 +21,7 @@ toogleTabButtons.forEach((btn) => {
   });
 });
 
-/* Format Section */
+/* (Output Format) Section */
 const toggleFormatButtons = document.querySelectorAll('.toggle-format');
 const inputFormat = document.getElementById("input-format");
 const summaryFormat = document.getElementById("summary-format");
@@ -37,7 +37,17 @@ toggleFormatButtons.forEach((btn) => {
   });
 });
 
-/* Object Fit Section */
+/* (Image Quality) Section */
+const inputQuality = document.getElementById("input-quality");
+const qualityValue = document.getElementById('quality-value');
+const summaryQuality = document.getElementById("summary-quality");
+
+inputQuality.addEventListener('input', () => {
+  qualityValue.innerHTML = inputQuality.value + '%'
+  summaryQuality.innerHTML = inputQuality.value + '%'
+});
+
+/* (Object Fit) Section */
 const toggleObjectFit = document.querySelector(".object-fit-container");
 const summaryObjectFit = document.getElementById("summary-object-fit");
 
@@ -46,7 +56,7 @@ toggleObjectFit.addEventListener('change', (e) => {
   summaryObjectFit.innerHTML = selectedValue;
 });
 
-/* Size Section */
+/* (Size Options) Section */
 const customSizeSection = document.getElementById('custom-size-section');
 const customSizeRadio = document.getElementById('custom-size');
 const keepOriginalSizeRadio = document.getElementById('keep-original');
@@ -65,16 +75,6 @@ keepOriginalSizeRadio.addEventListener('change', () => {
   }
 });
 
-/* Quality Section  */
-const inputQuality = document.getElementById("input-quality");
-const qualityValue = document.getElementById('quality-value');
-const summaryQuality = document.getElementById("summary-quality");
-
-inputQuality.addEventListener('input', () => {
-  qualityValue.innerHTML = inputQuality.value + '%'
-  summaryQuality.innerHTML = inputQuality.value + '%'
-});
-
 /* Summary Container */
 const summaryEmpty = document.getElementById('summary-empty');
 const summaryContainer = document.getElementById('summary-container');
@@ -91,7 +91,6 @@ imagesInput.addEventListener('change', () => {
   }
 });
 
-const inputAspectRatio = document.getElementById("input-aspect-ratio");
 const inputWidth = document.getElementById("input-width");
 const inputHeight = document.getElementById("input-height");
 const inputMetadata = document.getElementById("input-metadata");
