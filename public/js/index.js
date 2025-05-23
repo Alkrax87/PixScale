@@ -47,6 +47,18 @@ inputQuality.addEventListener('input', () => {
   summaryQuality.innerHTML = inputQuality.value + '%'
 });
 
+/* (Optimize Metadata) Section */
+const inputOptimizeMetadata = document.getElementById("input-metadata");
+const summaryOptimizeMetadata = document.getElementById("summary-optimize-metadata");
+
+inputOptimizeMetadata.addEventListener('change', () => {
+  if (inputOptimizeMetadata.checked) {
+    summaryOptimizeMetadata.innerHTML = "yes";
+  } else {
+    summaryOptimizeMetadata.innerHTML = "no";
+  }
+});
+
 /* (Object Fit) Section */
 const toggleObjectFit = document.querySelector(".object-fit-container");
 const summaryObjectFit = document.getElementById("summary-object-fit");
