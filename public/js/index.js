@@ -37,6 +37,15 @@ toggleFormatButtons.forEach((btn) => {
   });
 });
 
+/* Object Fit Section */
+const toggleObjectFit = document.querySelector(".object-fit-container");
+const summaryObjectFit = document.getElementById("summary-object-fit");
+
+toggleObjectFit.addEventListener('change', (e) => {
+  const selectedValue = e.target.value;
+  summaryObjectFit.innerHTML = selectedValue;
+});
+
 /* Size Section */
 const customSizeSection = document.getElementById('custom-size-section');
 const customSizeRadio = document.getElementById('custom-size');
