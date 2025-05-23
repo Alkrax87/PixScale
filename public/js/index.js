@@ -72,19 +72,31 @@ toggleObjectFit.addEventListener('change', (e) => {
 const customSizeSection = document.getElementById('custom-size-section');
 const customSizeRadio = document.getElementById('custom-size');
 const keepOriginalSizeRadio = document.getElementById('keep-original');
+const inputWidth = document.getElementById("input-width");
+const inputHeight = document.getElementById("input-height");
+const summarySizeOptions = document.getElementById("sumary-size-options");
 let sizeStatus = false;
 
 customSizeRadio.addEventListener('change', () => {
   if (customSizeRadio.checked) {
+    summarySizeOptions.innerHTML = "800x600px";
+    inputWidth.value = 800;
+    inputHeight.value = 600;
     sizeStatus = true;
     customSizeSection.classList.remove('hidden');
   }
 });
 keepOriginalSizeRadio.addEventListener('change', () => {
   if (keepOriginalSizeRadio.checked) {
+    summarySizeOptions.innerHTML = "original";
     sizeStatus = false;
     customSizeSection.classList.add('hidden');
   }
+});
+[inputWidth, inputHeight].forEach(input => {
+  input.addEventListener('change', () => {
+    summarySizeOptions.innerHTML = `${inputWidth.value}x${inputHeight.value}px`;
+  });
 });
 
 /* Summary Container */
@@ -102,10 +114,6 @@ imagesInput.addEventListener('change', () => {
     summaryContainer.classList.add('hidden');
   }
 });
-
-const inputWidth = document.getElementById("input-width");
-const inputHeight = document.getElementById("input-height");
-const inputMetadata = document.getElementById("input-metadata");
 
 /* Image Counter */
 const imageCounter = document.getElementById("counter");

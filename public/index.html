@@ -36,7 +36,7 @@
             </label>
             <div class="drop-counter-container">
               <p id="counter">No images selected</p>
-              <button type="button">
+              <button type="button" class="tooltip">
                 <i class="fa-regular fa-circle-question"></i>
               </button>
             </div>
@@ -87,6 +87,11 @@
                 <div><input type="radio" name="objectFit" value="cover" checked> Cover</div>
                 <div><input type="radio" name="objectFit" value="contain"> Contain</div>
                 <div><input type="radio" name="objectFit" value="fill"> Fill</div>
+                <div>
+                  <button type="button" class="tooltip">
+                    <i class="fa-regular fa-circle-question"></i>
+                  </button>
+                </div>
               </div>
               <p class="processing-tools-title">Size Options</p>
               <div class="size-options-container">
@@ -134,7 +139,7 @@
               </div>
               <div class="summary-item">
                 <p class="summary-title">Size:</p>
-                <p class="summary-value">original</p>
+                <p id="sumary-size-options" class="summary-value">original</p>
               </div>
               <button type="submit" class="summary-submit"><i class="fa-regular fa-image"></i> Process Images</button>
             </div>
