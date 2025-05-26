@@ -30,12 +30,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  res.redirect('/message.html?status=empty')
+  res.sendFile(path.join(__dirname, '../public', 'about.html'));
 });
 
 app.post('/upload', upload.array('images'), async (req, res) => {
   if (!req.files || req.files.length === 0) {
-    return res.sendFile(path.join(__dirname, '../public', 'empty.html'));
+    return res.redirect('/message.html?status=empty')
   }
 
   // Save image's names
