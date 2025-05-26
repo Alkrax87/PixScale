@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public', 'about.html'));
+  res.redirect('/message.html?status=empty')
 });
 
 app.post('/upload', upload.array('images'), async (req, res) => {
@@ -96,7 +96,8 @@ app.post('/upload', upload.array('images'), async (req, res) => {
     }
   }
 
-  res.sendFile(path.join(__dirname, '../public', 'converted.html'));
+//  res.sendFile(path.join(__dirname, '../public', 'converted.html'));
+  res.redirect('/message.html?status=success')
 });
 
 module.exports = app;

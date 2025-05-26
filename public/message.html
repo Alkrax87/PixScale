@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="messageHandler()">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>PixScale</title>
   </head>
   <body>
@@ -24,8 +25,8 @@
     </header>
     <main class="container">
       <div class="message-container">
-        <h2>Conversion completed!</h2>
-        <p>You can find your converted files in the <span>processed</span> folder.</p>
+        <h2 x-text="heading"></h2>
+        <p x-html="message"></p>
         <button class="button" type="submit" onclick="window.location.href='/'">Back</button>
       </div>
     </main>
@@ -34,4 +35,26 @@
       <p>© 2025 PixScale. Developed by Alkrax87. All rights reserved.</p>
     </footer>
   </body>
+  <script>
+    function messageHandler() {
+      const params = new URLSearchParams(window.location.search);
+      const status = params.get("status");
+
+      const messages = {
+        success: {
+          heading: 'Conversion completed!',
+          message: `You can find your converted files in the <span>processed</span> folder.`,
+        },
+        empty: {
+          heading: 'Error has occurred!',
+          message: `Looks like you didn't select any file. Please try again.`,
+        }
+      };
+
+      return messages[status] || {
+        heading: 'Unknown status',
+        message: 'An unexpected error occurred.',
+      }
+    }
+  </script>
 </html>
