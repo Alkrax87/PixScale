@@ -1,6 +1,16 @@
 /* ================================================ */
 /* =======================Global=================== */
 /* ================================================ */
+:root {
+  --main: #328e6e;
+  --text-secondary: #71717a;
+  --border: #e5e7eb;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f4;
+  --drop-color: #f4f4f580;
+  --text-white: #f2efe7;
+  --text-dark: var(--text-white);
+}
 * {
   font-family: "Geist", sans-serif;
   font-optical-sizing: auto;
@@ -8,7 +18,7 @@
 }
 html,
 body {
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
   height: 100%;
   margin: 0;
   padding: 0;
@@ -41,23 +51,23 @@ button:focus {
   display: none !important;
 }
 .tooltip {
-  background-color: #ffffff;
-  color: #71717a;
+  background-color: var(--bg-primary);
+  color: var(--main);
   border-radius: 8px;
   border: none;
   width: 32px;
   height: 32px;
 }
 .tooltip:hover {
-  background-color: #f4f4f5;
+  background-color: var(--bg-secondary);
   cursor: pointer;
 }
 /* ====================== */
 /* =========Header======= */
 /* ====================== */
 header {
-  background-color: #2c8062;
-  color: #f2efe7;
+  background-color: var(--main);
+  color: var(--text-white);
   display: flex;
   justify-content: space-between;
   padding: 12px;
@@ -75,7 +85,7 @@ header {
 .left-header p{
   font-size: 20px;
   font-weight: 500;
-  color: #f2efe7;
+  color: var(--text-white);
 }
 .right-header {
   display: flex;
@@ -83,7 +93,7 @@ header {
   gap: 8px;
 }
 .right-header a {
-  color: #f2efe7;
+  color: var(--text-white);
   font-size: 14px;
   font-weight: 500;
   padding: 4px 8px;
@@ -106,8 +116,8 @@ footer{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #2c8062;
-  color: #f2efe7;
+  background-color: var(--main);
+  color: var(--text-white);
   padding: 12px;
 }
 footer p:nth-child(1){
@@ -142,7 +152,7 @@ footer p:nth-child(2){
   }
 }
 .card-item {
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
   padding: 24px;
   border-radius: 12px;
   height: fit-content;
@@ -160,7 +170,7 @@ footer p:nth-child(2){
 /* ====================Content===================== */
 /* ================================================ */
 .section-title {
-  color: #328e6e;
+  color: var(--main);
   font-size: 18px;
   font-weight: 500;
   display: flex;
@@ -182,12 +192,12 @@ footer p:nth-child(2){
   text-align: center;
   height: 300px;
   padding: 48px;
-  border: #e5e7eb dashed 2px;
+  border: var(--border) dashed 2px;
   border-radius: 12px;
   cursor: pointer;
 }
 .drop-area:hover {
-  background-color: #f4f4f580;
+  background-color: var(--drop-color);
 }
 .drop-image {
   width: 100px;
@@ -200,7 +210,7 @@ footer p:nth-child(2){
 }
 .drop-click {
   font-size: 15px;
-  color: #71717a;
+  color: var(--text-secondary);
 }
 .drop-counter-container {
   display: flex;
@@ -210,7 +220,7 @@ footer p:nth-child(2){
 }
 #counter {
   font-size: 14px;
-  color: #71717a;
+  color: var(--text-secondary);
 }
 #counter b {
   color: #18181d;
@@ -219,7 +229,7 @@ footer p:nth-child(2){
 /* =============Content Processing Tools=========== */
 /* ================================================ */
 .processing-tools-title {
-  color: #328e6e;
+  color: var(--main);
   font-size: 14px;
   font-weight: 500;
   margin-top: 12px;
@@ -227,13 +237,13 @@ footer p:nth-child(2){
 /* Tabs Container */
 .processing-tools-tab-container {
   display: flex;
-  background-color: #F4F4F5;
+  background-color: var(--bg-secondary);
   border-radius: 8px;
   padding: 4px;
   margin-top: 12px;
 }
 .processing-tools-tab-container button {
-  color: #71717a;
+  color: var(--text-secondary);
   font-weight: 500;
   border-radius: 4px;
   border: none;
@@ -242,8 +252,8 @@ footer p:nth-child(2){
   cursor: pointer;
 }
 .processing-tools-tab-container button.active {
-  background-color: #ffffff;
-  color: #328e6e;
+  background-color: var(--bg-primary);
+  color: var(--main);
 }
 /* ====================== */
 /* =========Format======= */
@@ -254,8 +264,8 @@ footer p:nth-child(2){
   margin-top: 12px;
 }
 .format-button-container button {
-  background-color: #ffffff;
-  color: #328e6e;
+  background-color: var(--bg-primary);
+  color: var(--main);
   border: #e4e4e7 1px solid;
   font-weight: 500;
   border-radius: 8px;
@@ -264,24 +274,24 @@ footer p:nth-child(2){
   cursor: pointer;
 }
 .format-button-container button.active {
-  background-color: #328e6e;
-  color: #ffffff;
+  background-color: var(--main);
+  color: var(--text-white);
 }
 /* ====================== */
 /* ==========Size======== */
 /* ====================== */
 .aspect-ratio-container select {
   width: 100%;
-  border: #e5e7eb 1px solid;
+  border: var(--border) 1px solid;
   border-radius: 8px;
   padding: 8px;
   font-size: 14px;
-  color: #328e6e;
+  color: var(--main);
   margin-top: 8px;
 }
 .aspect-ratio-container select:focus {
   outline: none;
-  border-color: #328e6e;
+  border-color: var(--main);
 }
 .object-fit-container {
   display: flex;
@@ -325,20 +335,20 @@ footer p:nth-child(2){
   width: 100%;
 }
 .custom-size-container input {
-  border: #e5e7eb 1px solid;
+  border: var(--border) 1px solid;
   border-radius: 8px;
   padding: 8px;
   font-size: 14px;
-  color: #328e6e;
+  color: var(--main);
 }
 .custom-size-container input:focus {
-  outline: #328e6e 1px solid;
+  outline: var(--main) 1px solid;
 }
 /* ====================== */
 /* ========Quality======= */
 /* ====================== */
 .quality-slider-value {
-  color: #328e6e;
+  color: var(--main);
   font-size: 14px;
   font-weight: 500;
   margin-top: 12px;
@@ -349,21 +359,21 @@ footer p:nth-child(2){
 .quality-slider-labels-container {
   display: flex;
   justify-content: space-between;
-  color: #71717a;
+  color: var(--text-secondary);
   font-size: 12px;
 }
 .metadata-toggle {
   margin-top: 12px;
 }
 .metadata-label {
-  color: #71717a;
+  color: var(--text-secondary);
   font-size: 12px;
 }
 /* ================================================ */
 /* ==================Content Summary=============== */
 /* ================================================ */
 .summary-empty {
-  color: #71717a;
+  color: var(--text-secondary);
   font-size: 14px;
   margin-top: 12px;
 }
@@ -374,15 +384,15 @@ footer p:nth-child(2){
   font-size: 14px;
 }
 .summary-title {
-  color: #71717a;
+  color: var(--text-secondary);
 }
 .summary-value {
-  color: #328e6e;
+  color: var(--main);
   font-weight: 500;
 }
 .summary-submit {
-  background-color: #328e6e;
-  color: #ffffff;
+  background-color: var(--main);
+  color: var(--text-white);
   border-radius: 8px;
   border: none;
   width: 100%;
@@ -402,7 +412,7 @@ footer p:nth-child(2){
   gap: 8px;
 }
 .preview-card {
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
   padding: 16px;
   border-radius: 12px;
   display: flex;
@@ -425,7 +435,7 @@ footer p:nth-child(2){
   margin: auto;
 }
 .preview-card button:hover {
-  background-color: rgb(244, 244, 245);
+  background-color: var(--bg-secondary);
 }
 .preview-info {
   display: flex;
@@ -438,40 +448,39 @@ footer p:nth-child(2){
 }
 .preview-size {
   font-size: 14px;
-  color: #71717a;
+  color: var(--text-secondary);
 }
 /* ================================================ */
 /* ====================Card Message================ */
 /* ================================================ */
 .message-container {
-  border: 1px solid #e5e7eb;
-  background-color: #fff;
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 50px;
   text-align: center;
 }
 .message-container h2 {
   font-size: 32px;
-  color: #328e6e;
+  color: var(--main);
   margin: 0;
 }
 .message-container p {
   font-size: 16px;
-  color: #747574;
+  color: var(--text-secondary);
 }
 .message-container button {
   margin-top: 20px;
 }
 .message-container span {
-  color: #328e6e;
+  color: var(--main);
   font-weight: 1000;
 }
 /* ================================================ */
 /* ====================Back Button================= */
 /* ================================================ */
 .button {
-  background-color: #328e6e;
-  color: #fff;
+  background-color: var(--main);
+  color: var(--text-white);
   border: none;
   width: 100%;
   padding: 16px 28px;
