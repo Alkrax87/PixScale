@@ -98,31 +98,3 @@ keepOriginalSizeRadio.addEventListener('change', () => {
     summarySizeOptions.innerHTML = `${inputWidth.value}x${inputHeight.value}px`;
   });
 });
-
-/* Summary Container */
-const summaryEmpty = document.getElementById('summary-empty');
-const summaryContainer = document.getElementById('summary-container');
-
-imagesInput.addEventListener('change', () => {
-  const files = Array.from(imagesInput.files);
-  updateImagesCounter(files);
-  if (files.length > 0) {
-    summaryEmpty.classList.add('hidden');
-    summaryContainer.classList.remove('hidden');
-  } else {
-    summaryEmpty.classList.remove('hidden');
-    summaryContainer.classList.add('hidden');
-  }
-});
-
-/* Image Counter */
-const imageCounter = document.getElementById("counter");
-const summaryCounter = document.getElementById("summary-image-counter");
-function updateImagesCounter(files) {
-  if (files.length > 0) {
-    imageCounter.innerHTML = `${ files.length } images uploaded`;
-    summaryCounter.innerHTML = `${ files.length }`;
-  } else {
-    imageCounter.innerHTML = "No images selected";
-  }
-}

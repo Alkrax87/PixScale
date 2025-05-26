@@ -436,6 +436,7 @@ footer p:nth-child(2){
 }
 .preview-card button:hover {
   background-color: var(--bg-secondary);
+  color: #c51818;
 }
 .preview-info {
   display: flex;
