@@ -3,13 +3,42 @@ const previewSection = document.getElementById('preview-section');
 const previewContainer = document.getElementById('preview-container');
 const summaryEmpty = document.getElementById('summary-empty');
 const summaryContainer = document.getElementById('summary-container');
+const dropArea = document.getElementById('drop-area');
 
 let filesArray = [];
 
+function updateInputFiles() {
+  const dataTransfer = new DataTransfer();
+  filesArray.forEach(file => dataTransfer.items.add(file));
+  inputFile.files = dataTransfer.files;
+}
+
 inputFile.addEventListener('change', () => {
   const files = Array.from(inputFile.files);
-  filesArray = filesArray.concat(files);
 
+  files.forEach(file => {
+    const isDuplicate = filesArray.some(f => f.name === file.name && f.size === file.size);
+    if (!isDuplicate) filesArray.push(file);
+  });
+
+  updateInputFiles();
+  renderPreviews();
+  previewSection.classList.remove('hidden');
+});
+
+dropArea.addEventListener('dragover', function(e) {
+  e.preventDefault();
+});
+dropArea.addEventListener('drop', function(e) {
+  e.preventDefault();
+  const files = Array.from(e.dataTransfer.files);
+
+  files.forEach(file => {
+    const isDuplicate = filesArray.some(f => f.name === file.name && f.size === file.size);
+    if (!isDuplicate) filesArray.push(file);
+  });
+
+  updateInputFiles();
   renderPreviews();
   previewSection.classList.remove('hidden');
 });
@@ -43,10 +72,7 @@ function renderPreviews() {
 function removeImage(index) {
   filesArray.splice(index, 1);
 
-  const dataTransfer = new DataTransfer();
-  filesArray.forEach(file => dataTransfer.items.add(file));
-  inputFile.files = dataTransfer.files;
-
+  updateInputFiles();
   renderPreviews();
   updateImagesCounter();
 

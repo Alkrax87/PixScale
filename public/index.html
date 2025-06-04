@@ -28,11 +28,13 @@
         <div class="content-container">
           <!-- Upload Section -->
           <div class="card-item">
-            <label class="drop-area" for="input-file">
+            <label for="input-file" id="drop-area">
               <input type="file" id="input-file" name="images" accept=".webp, .png, .jpeg, .jpg, .avif, .tiff" multiple hidden>
-              <img class="drop-image" src="./assets/svg/upload.svg" alt="upload-image">
-              <p class="drop-message">Drag and drop images here</p>
-              <p class="drop-click">or click to browse files</p>
+              <div class="drop-area">
+                <img class="drop-image" src="./assets/svg/upload.svg" alt="upload-image">
+                <p class="drop-message">Drag and drop images here</p>
+                <p class="drop-click">or click to browse files</p>
+              </div>
             </label>
             <div class="drop-counter-container">
               <p id="counter">No images selected</p>

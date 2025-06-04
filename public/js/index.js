@@ -1,6 +1,3 @@
-/* Images Input */
-const imagesInput = document.getElementById('input-file');
-
 /* Tab section functionality */
 const toogleTabButtons = document.querySelectorAll('.toggle-tab');
 
