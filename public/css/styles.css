@@ -265,6 +265,18 @@ footer p:nth-child(2){
   font-size: 20px;
   font-weight: 500;
 }
+.drop-formats {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.drop-formats div {
+  padding: 2px 8px;
+  border-radius: 16px;
+  border: 2px var(--main) solid;
+  font-size: 10px;
+  color: var(--main);
+}
 .drop-click {
   font-size: 15px;
   color: var(--text-secondary);
