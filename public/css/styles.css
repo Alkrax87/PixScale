@@ -71,7 +71,7 @@ header {
   color: var(--text-white);
   display: flex;
   justify-content: space-between;
-  padding: 12px;
+  padding: 8px 20px;
 }
 .version {
   display: flex;
@@ -80,10 +80,10 @@ header {
 }
 .version p {
   background: #43aa86;
-  padding: 4px 8px;
+  padding: 4px 6px;
   border-radius: 10px;
   font-weight: bold;
-  font-size: 10px !important;
+  font-size: 9px !important;
 }
 .left-header {
   display: flex;
@@ -103,13 +103,17 @@ header {
 .right-header {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
 }
-.right-header a {
-  color: var(--text-white);
+.right-header .route {
   font-size: 14px;
   font-weight: 500;
-  padding: 4px 8px;
+  padding: 4px 0px;
+  color: var(--text-white);
+}
+.right-header .github {
+  font-size: 20px;
+  color: var(--text-white);
 }
 /* ====================== */
 /* ==========Main======== */
