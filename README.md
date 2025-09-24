@@ -23,10 +23,10 @@
 
 ## 🖥️ Uso
 
-- Abre tu navegador y accede a http://localhost:[puerto].
+- Abre tu navegador y accede a http://localhost:3000.
 - Sube una o más imágenes.
-- Configura el procesamiento (próximamente).
-- Descarga las imágenes procesadas.
+- Configura el procesamiento.
+- Busca las imagenes procesadas en la carpeta `./processed`.
 
 ## 📄 Licencia
 
