@@ -51,7 +51,7 @@ app.post('/upload', upload.array('images'), async (req, res) => {
   const quality = parseInt(req.body.quality);
   const optimizeMetadata = req.body.optimizeMetadata === 'on';
 
-  // Proccess iamges
+  // Proccess images
   for (const file of req.files) {
     const inputPath = file.path;
     const outputName = `${path.parse(file.originalname).name}.${format}`;
@@ -96,7 +96,6 @@ app.post('/upload', upload.array('images'), async (req, res) => {
     }
   }
 
-//  res.sendFile(path.join(__dirname, '../public', 'converted.html'));
   res.redirect('/message.html?status=success')
 });
 
