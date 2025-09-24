@@ -91,8 +91,8 @@ header {
   gap: 10px;
 }
 .left-header img {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 8px;
 }
 .left-header p{
@@ -135,7 +135,7 @@ footer{
   align-items: center;
   background-color: var(--main);
   color: var(--text-white);
-  padding: 12px;
+  padding: 8px;
 }
 footer p:nth-child(1){
   font-size: 14px;
